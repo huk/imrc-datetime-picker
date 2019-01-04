@@ -68,10 +68,15 @@ class Time extends Component {
     onChange && onChange(selected);
   };
 
+  handleConfirm = () => {
+    this.props.togglePicker(false);
+    this.props.onConfirm();
+  }
+
   displayConfirmButton = text => {
     if(text) {
       return (<div className="confirm">
-        <button className="btn btn-warning" onClick={this.props.togglePicker.bind(this, false)}>{text}</button>
+        <button className="btn btn-warning" onClick={this.handleConfirm.bind(this)}>{text}</button>
       </div>);
     } else {
       return (<span></span>);
