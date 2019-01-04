@@ -14,6 +14,7 @@ class Picker extends Component {
     this.state = {
       panel: "calendar"
     };
+
   }
 
   changePanel = panel => {
@@ -28,7 +29,8 @@ class Picker extends Component {
       shortcuts,
       splitPanel,
       showTimePicker = true,
-      showCalendarPicker = true
+      showCalendarPicker = true,
+      togglePicker
     } = this.props;
     const { panel } = this.state;
     const isTimePanel = panel === "time";
@@ -49,7 +51,6 @@ class Picker extends Component {
         onClick={evt => evt.stopPropagation()}
       >
         {shortcuts ? <Shortcuts {...props} /> : undefined}
-
         {splitPanel ? (
           <div className="panel-nav">
             <button

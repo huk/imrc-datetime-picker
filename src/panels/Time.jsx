@@ -68,11 +68,24 @@ class Time extends Component {
     onChange && onChange(selected);
   };
 
+  displayConfirmButton = text => {
+    if(text) {
+      return (<div className="confirm">
+        <button className="btn btn-warning" onClick={this.props.togglePicker.bind(this, false)}>{text}</button>
+      </div>);
+    } else {
+      return (<span></span>);
+    }
+
+  }
+
   render() {
     const _moment = this.state.moment;
-    const { style } = this.props;
+    const { style, confirmButtonText } = this.props;
     const defaultHourValue = _moment.hour();
     const defaultMinuteValue = _moment.minute();
+
+    const confirmButton = this.displayConfirmButton(confirmButtonText);
 
     return (
       <div style={style}>
@@ -108,6 +121,7 @@ class Time extends Component {
               <div className={classes["handle"]} />
             </ReactSlider>
           </div>
+          {confirmButton}
         </div>
       </div>
     );

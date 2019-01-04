@@ -112,6 +112,7 @@ class Trigger extends Component {
             : classes["pos-bottom"]
         }`}
         isOpen={isOpen}
+        togglePicker={this.togglePicker}
         onChange={this.handleChange}
       />
     );
